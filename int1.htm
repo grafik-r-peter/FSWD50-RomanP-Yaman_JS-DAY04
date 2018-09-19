@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+<form>
+    How many rooms do you need ?
+	<br>
+    <input type="number" id="nights" value="">
+    <br>
+    <input type="submit"  value="Submit" onclick="check()">
+</form>
+
+    <script type="text/javascript">
+
+    function HotelConstructor(hotel, rooms) {
+       this.hotel = hotel;
+       this.bookedRooms = Math.floor(Math.random() * 11);
+       this.rooms = rooms;
+       this.checkRooms = function(){return(this.rooms - this.bookedRooms)}
+
+		console.log("Total Rooms: " + this.rooms)
+      	console.log("Booked Rooms: " + this.bookedRooms);
+       	console.log("Available Rooms: " + this.checkRooms());
+	}
+
+	var hilton = new HotelConstructor('Hilton', 10);
+	var marriot = new HotelConstructor('Marriott', 20);
+	var intercont = new HotelConstructor('Intercontinental', 30);
+
+    function check(){
+    	userInput = document.getElementById("nights").value;
+    	if (hilton.checkRooms() > userInput) {
+    		document.write("Hilton Vienna is available. <BR>");
+    	} else { document.write("Hilton Vienna is not available.<BR>"); }
+
+	    if (marriot.checkRooms() > userInput) {
+	    		document.write("Marriot Vienna is available.<BR>");
+	    	} else { document.write("Marriot Vienna is not available.<BR>"); }
+
+	    if (intercont.checkRooms() > userInput) {
+	    		document.write("Intercontinental is available.<BR>");
+	    	}  else { document.write("Intercontinental is not available.<BR>"); }
+    }
+
+    check();
+
+    </script>
+</body>
+
+</html>
