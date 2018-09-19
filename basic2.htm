@@ -10,17 +10,16 @@
 	
 
 	<script type="text/javascript">
-		
-		var age = {
-			dateNow: new Date().getFullYear(),
-			birthYear: 1987, 
-			myAge: function() {
-				return (this.dateNow - this.birthYear);
+
+		var shortener = {
+			text: "I am a hero from World of Warcraft",
+			num: 12,
+			calc: function() {
+				return (this.text.substring(0,this.num));
 			}
 		}
-		
-		document.write(age.myAge());
 
+		document.write(shortener.calc());
 
 	</script>
 </body>
